@@ -1,0 +1,14 @@
+{
+  "name": "cracking-the-coding-interview",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.1-is-unique.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ava": "^3.5.1"
+  }
+}
