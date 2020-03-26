@@ -25,7 +25,10 @@ test('considers an empty string to be all-unique', t => {
   t.true(result)
 });
 
-// test('throws if not provided a param', t => {
-//   const result = isUnique()
-//   // TODO: figure out how to handle throws
-// });
+// TODO: Figure out how to handle bad params.
+test.skip('throws if not provided a param', t => {
+  const error = t.throws(() => {
+    isUnique()
+  })
+  t.is(error.message, 'Please provide a string.')
+});
