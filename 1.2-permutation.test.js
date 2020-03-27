@@ -1,4 +1,5 @@
 const test = require('ava');
+// const isPermutation = require('./1.2-permutation-with-set')
 const isPermutation = require('./1.2-permutation')
 
 test('returns true when the two are permutations', t => {
@@ -11,7 +12,7 @@ test('returns false when the two are not permutations', t => {
   t.false(result)
 });
 
-test.only('correctly handles strings of different length', t => {
+test('correctly handles strings of different length', t => {
   const result = isPermutation("aa", "aab")
   t.false(result)
 });
