@@ -1,5 +1,5 @@
 const test = require("ava");
-const LinkedList = require("../linked-list");
+const LinkedList = require("../lib/linked-list");
 const removeDupes = require("./remove-dupes")
 
 test("should remove a single duplicate", t => {

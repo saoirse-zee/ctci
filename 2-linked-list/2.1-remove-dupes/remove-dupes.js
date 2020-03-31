@@ -1,4 +1,4 @@
-const LinkedList = require("../linked-list");
+const LinkedList = require("../lib/linked-list");
 
 /**
  * Removes duplicates from a linked list.
