@@ -7,7 +7,7 @@ function urlify(s) {
   return s
     .trim()
     .split(" ")
-    .filter(substring => substring !== "")
+    .filter((substring) => substring !== "")
     .join("%20");
 }
 

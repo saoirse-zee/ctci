@@ -1,13 +1,13 @@
 const test = require("ava");
 const LinkedList = require("./linked-list");
 
-test("should create an empty linked list", t => {
+test("should create an empty linked list", (t) => {
   const list = new LinkedList();
 
   t.is(list.toString(), "");
 });
 
-test("should append node to linked list", t => {
+test("should append node to linked list", (t) => {
   const linkedList = new LinkedList();
 
   t.is(linkedList.head, null);

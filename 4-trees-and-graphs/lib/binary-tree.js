@@ -11,20 +11,20 @@ class BinaryTreeNode {
 
 /**
  * Traverses a tree "in order" -- it visits the left branch, the current node, then the right branch.
- * @param {BinaryTreeNode}  
+ * @param {BinaryTreeNode}
  * @returns {string} - the concatenation of the values of all nodes
  */
 function inOrderTraversal(node) {
-  let string = ''
-    if (node !== null) {
-      string += inOrderTraversal(node.left)
-      string += node.value
-      string += inOrderTraversal(node.right)
-    }
-  return string
+  let string = "";
+  if (node !== null) {
+    string += inOrderTraversal(node.left);
+    string += node.value;
+    string += inOrderTraversal(node.right);
+  }
+  return string;
 }
 
 module.exports = {
   BinaryTreeNode,
-  inOrderTraversal
+  inOrderTraversal,
 };

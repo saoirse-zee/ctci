@@ -1,7 +1,7 @@
 const test = require("ava");
 const { BinaryTreeNode, inOrderTraversal } = require("./binary-tree");
 
-test("traverses a balanced tree of depth 2", t => {
+test("traverses a balanced tree of depth 2", (t) => {
   const headNode = new BinaryTreeNode("b");
   headNode.left = new BinaryTreeNode("a");
   headNode.right = new BinaryTreeNode("c");
@@ -10,7 +10,7 @@ test("traverses a balanced tree of depth 2", t => {
   t.is(result, "abc");
 });
 
-test("traverses an unbalanced tree of depth 3", t => {
+test("traverses an unbalanced tree of depth 3", (t) => {
   const headNode = new BinaryTreeNode("3");
   headNode.left = new BinaryTreeNode("2");
   headNode.right = new BinaryTreeNode("4");
@@ -20,7 +20,7 @@ test("traverses an unbalanced tree of depth 3", t => {
   t.is(result, "1234");
 });
 
-test("traverses a tree with one node", t => {
+test("traverses a tree with one node", (t) => {
   const headNode = new BinaryTreeNode("hi!");
 
   const result = inOrderTraversal(headNode);

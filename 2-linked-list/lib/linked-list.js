@@ -23,10 +23,10 @@ class LinkedList {
       return "";
     }
     let current = this.head;
-    let string = current.toString()
+    let string = current.toString();
     while (current.next !== null) {
-      current = current.next
-      string += "-" + current.toString()
+      current = current.next;
+      string += "-" + current.toString();
     }
     return string;
   }
