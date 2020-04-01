@@ -2,13 +2,21 @@
   "name": "cracking-the-coding-interview",
   "version": "1.0.0",
   "description": "",
-  "main": "1.1-is-unique.js",
+  "main": "",
   "scripts": {
     "test": "ava"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "ava": "^3.5.1"
+    "ava": "^3.5.1",
+    "husky": "^4.2.3",
+    "prettier": "2.0.2",
+    "pretty-quick": "^2.0.1"
   }
 }
