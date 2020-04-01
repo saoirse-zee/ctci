@@ -21,7 +21,6 @@ function isPermutation(s1, s2) {
   // Turn each set into a sorted array.
   const array1 = Object.keys(set1).sort(); // QUESTION: This is probably O(log n). Is that so? Is that okay?
   const array2 = Object.keys(set2).sort();
-  console.log(array1, array2);
 
   // Compare the arrays. QUESTION: Looks like O(n).
   // Iterate through the two arrays simultaneously, comparing each character as we go.
