@@ -1,9 +1,14 @@
 class Stack {
   constructor() {
     this.data = [];
+    this.min = undefined;
   }
 
   push(element) {
+    if (!this.min) {
+      this.min = element;
+    }
+    this.min = Math.min(this.min, element);
     this.data.push(element);
   }
 

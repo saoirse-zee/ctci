@@ -3,9 +3,14 @@ const LinkedList = require("../../2-linked-list/lib/linked-list");
 class Stack {
   constructor() {
     this.data = new LinkedList();
+    this.min = undefined;
   }
 
   push(element) {
+    if (!this.min) {
+      this.min = element;
+    }
+    this.min = Math.min(this.min, element);
     this.data.append(element);
   }
 
