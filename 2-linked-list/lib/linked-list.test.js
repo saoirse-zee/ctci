@@ -19,5 +19,15 @@ test("should append node to linked list", (t) => {
   t.is(linkedList.toString(), "1-2-3");
 });
 
+test("should give the tail", (t) => {
+  const linkedList = new LinkedList();
+
+  linkedList.append(1);
+  linkedList.append(2);
+  linkedList.append(3);
+
+  t.is(linkedList.tail.toString(), "3");
+});
+
 test.todo("should prepend node to linked list");
 test.todo("should delete node by value from linked list");
