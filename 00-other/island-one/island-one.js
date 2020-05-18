@@ -1,9 +1,3 @@
-/* If you're feeling fancy you can add interactivity 
-    to your site with Javascript */
-
-// prints "hi" in the browser's dev tools console
-console.log("hi");
-
 /*
 
 010000
@@ -18,7 +12,6 @@ console.log("hi");
 ...2..
 ...2..
 
-islandCount++
 */
 
 const input = [
@@ -29,46 +22,75 @@ const input = [
   [0, 0, 0, 1, 0, 0],
 ];
 
-input = [
+const input2 = [
   [1, 0, 1],
   [1, 0, 1],
   [1, 1, 1],
 ];
 
-input[([1, 1], [0, 0])];
+/*
+11
+..
+*/
+const input3 = [
+  [1, 1],
+  [0, 0],
+];
+
+console.log(countIslands(input3));
+
 // return true if land exists at given cell
-function hasLand() {
-  //   TODO
+// out-of-bounds is considered non-land, i.e. false
+function hasLand(i, ri, ci) {
+  return getValue(i, ri, ci) === 1;
 }
 
-function markMap(rowI, colI) {
-  // Check if map has already been marked
-  if (map[rowI][colI] === undefined) {
-    return;
-  }
-
-  if (!hasLand(rowI, colI)) {
-    map[rowI][colI] = ".";
-    return;
-  }
-  map[rowI][colI] = islandCount;
-  // right
-  markMap(rowI, colI + 1);
-  // do for other 3 directions
+// Safely get the value of a cell in a 2d array
+function getValue(array, ri, ci) {
+  return array[ri] && array[ri][ci];
 }
 
-let map; // 2d array representing the "map" of islands
-let islandCount = 0;
-for (let rowI = 0; rowI < input.length; rowI++) {
-  const row = input[rowI];
-  for (let colI = 0; colI < row.length; colI++) {
-    if (hasLand(input, colI, rowI)) {
-      if (map[rowI][colI] === undefined) {
-        islandCount++;
-        markMap(colI, rowI);
+function countIslands(input) {
+  let map = new Array(input.length).fill(new Array(input[0].length).fill("_")); // 2d array representing the "map" of islands
+  let islandCount = 0;
+
+  for (let rowI = 0; rowI < input.length; rowI++) {
+    const row = input[rowI];
+    for (let colI = 0; colI < row.length; colI++) {
+      if (hasLand(input, colI, rowI)) {
+        const mapHasNotBeenMarked = getValue(map, rowI, colI) === "_";
+        if (mapHasNotBeenMarked) {
+          islandCount++;
+          markMap(colI, rowI);
+        }
       }
     }
   }
+
+  function markMap(rowI, colI) {
+    // Check if map has already been marked
+    const mapHasBeenMarked = getValue(map, rowI, colI) !== "_";
+    if (mapHasBeenMarked) {
+      return;
+    }
+    // Check for no land. If no land, mark map as such.
+    if (!hasLand(input, rowI, colI)) {
+      map[rowI][colI] = ".";
+      return;
+    }
+    // We've found land. Mark map with island "name", i.e. current count.
+    map[rowI][colI] = islandCount;
+    markMap(rowI, colI + 1); // Check right
+    markMap(rowI, colI - 1); // Check left
+    markMap(rowI + 1, colI); // Check down
+    markMap(rowI - 1, colI); // Check up
+  }
+
+  map.forEach((row) => {
+    console.log(row);
+  });
+
+  return islandCount;
 }
 
-return islandCount;
+module.exports = countIslands;
